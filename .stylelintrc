@@ -1,0 +1,15 @@
+{
+  "syntax": "pcss",
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-prettier",
+    "stylelint-config-property-sort-order-smacss"
+  ],
+  "rules": {
+    "max-empty-lines": 2,
+    "no-descending-specificity": null,
+    "property-no-unknown": null,
+    "color-hex-length": null,
+    "font-family-no-missing-generic-family-keyword": null
+  }
+}

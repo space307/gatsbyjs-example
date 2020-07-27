@@ -12,12 +12,20 @@ import { useStaticQuery, graphql } from 'gatsby';
 type TProps = {
   description: string | null;
   lang: string;
-  meta: any;
+  meta: any[];
   title: string;
 };
 
-function SEO({ description, lang, meta, title }: TProps) {
-  const { site } = useStaticQuery(
+type TSite = {
+  siteMetadata: {
+    description: string;
+    title: string;
+    author: string;
+  };
+};
+
+function SEO({ description, lang, meta, title }: TProps): React.ReactElement {
+  const { site }: { site: TSite } = useStaticQuery(
     graphql`
       query {
         site {

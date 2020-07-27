@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 import Image from '../components/image';
 import SEO from '../components/seo';
 
-const IndexPage = () => (
+const IndexPage = (): React.ReactElement => (
   <Layout>
     <SEO title="Home" />
     <h1>Hi gays</h1>
@@ -15,7 +15,7 @@ const IndexPage = () => (
       <Image />
     </div>
     <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    <Link to="/using-typescript/">Go to &quot;Using TypeScript&quot;</Link>
   </Layout>
 );
 

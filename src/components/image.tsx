@@ -13,7 +13,8 @@ import Img from 'gatsby-image';
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-const Image = () => {
+const Image = (): React.ReactElement => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
@@ -26,6 +27,7 @@ const Image = () => {
     }
   `);
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-member-access
   return <Img fluid={data.placeholderImage.childImageSharp.fluid} />;
 };
 

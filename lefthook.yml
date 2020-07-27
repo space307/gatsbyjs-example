@@ -1,0 +1,29 @@
+# Refer for explanation to following link:
+# https://github.com/Arkweid/lefthook/blob/master/docs/full_guide.md
+#
+pre-push:
+  parallel: true
+  commands:
+#    # TODO need fix decompress: https://npmjs.com/advisories/1217
+#    packages-audit:
+#      tags: frontend security
+#      run: npm audit --audit-level=high
+    eslint:
+      run: eslint --no-error-on-unmatched-pattern src/**/*.ts src/**/*.tsx
+    stylelint:
+      run: stylelint ./src/**/*.css
+#    test:
+#      run: jest src --color --passWithNoTests
+    types:
+      run: tsc --p ./tsconfig.json --noEmit --skipLibCheck
+pre-commit:
+  parallel: true
+  commands:
+    eslint:
+      files: git diff --name-only @{push}
+      glob: 'src/*.{tsx}'
+      run: eslint --fix {files}
+    stylelint:
+      files: git diff --name-only @{push}
+      glob: 'src/*.css'
+      run: stylelint --fix {files}
